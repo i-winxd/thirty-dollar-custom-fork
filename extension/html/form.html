@@ -54,25 +54,10 @@
   <body>
     <h1>Upload a Sound</h1>
     <form>
-      <label for="sound-name">Sound Name:</label>
-      <input type="text" id="sound-name" name="sound-name" required>
 
-      <label for="sound-credit">Sound Credit:</label>
-      <input type="text" id="sound-credit" name="sound-credit">
 
-      <label for="sound-type">Sound Type:</label>
-      <select id="sound-type" name="sound-type" required>
-        <option value="">Please select one</option>
-        <option value="Sound">Sound</option>
-        <option value="Note">Note</option>
-        <option value="Percussion">Percussion</option>
-      </select>
-
-      <label for="sound-image">Sound Image:</label>
-      <input type="file" id="sound-image" name="sound-image" accept="image/*" required>
-
-      <label for="sound-audio">Sound Audio:</label>
-      <input type="file" id="sound-audio" name="sound-audio" accept="audio/*" required>
+      <label for="sound-audio">Input JSON file:</label>
+      <input type="file" id="sound-audio" name="sound-audio" accept=".json" required>
 
       <br>
       <input type="submit" value="Submit" id="sbut">
