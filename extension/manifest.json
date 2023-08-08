@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "DON'T YOU LECTURE ME WITH YOUR THIRTY DOLLAR CUSTOM SOUNDS",
-  "version": "1.0",
-  "description": "Adds custom sounds to GDColon's thirtydollar.website.",
+  "name": "THIRTY DOLLAR CUSTOM LOADER FORK",
+  "version": "2.1",
+  "description": "Adds custom sounds to GDColon's thirtydollar.website, all at once.",
   "icons": {
     "160": "assets/moai.png"
   },
