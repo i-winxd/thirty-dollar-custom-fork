@@ -22,22 +22,18 @@ document.addEventListener('DOMContentLoaded', async function () {
   });
   form.addEventListener('submit', async function (event) {
     event.preventDefault();
-    const soundName = form.querySelector('#sound-name').value;
-    const soundCredit = form.querySelector('#sound-credit').value || "";
-    const soundType = form.querySelector('#sound-type').value;
-    let soundImage = form.querySelector('#sound-image').files[0];
+    title.innerHTML = "You submitted it";
+    console.log("Submitted!!");
+
     let soundAudio = form.querySelector('#sound-audio').files[0];
     let fr = new FileReader()
-    fr.readAsDataURL(soundAudio)
+    fr.readAsText(soundAudio);
     fr.onload = (e) => {
-      soundAudio = fr.result
-      fr.readAsDataURL(soundImage)
-      fr.onload = (e) => {
-        soundImage = fr.result
-        chrome.tabs.sendMessage(tabid, {name: soundName, credit: soundCredit, type: soundType, image: soundImage, audio: soundAudio})
-      };
-      fr.onerror = (e) => {
-        return
+      let textResult = fr.result
+      let inputJSON = JSON.parse(textResult);
+      let inputJSONExports = inputJSON.exports;
+      for(let inputJSONItem of inputJSONExports){
+        chrome.tabs.sendMessage(tabid, {name: inputJSONItem.soundName, credit: "Custom", type: "Note", image: inputJSONItem.imgBits, audio: inputJSONItem.soundBits})
       }
     };
     fr.onerror = (e) => {
@@ -45,4 +41,3 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
   }); 
 });
-
